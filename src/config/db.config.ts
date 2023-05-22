@@ -1,5 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
+import { User } from '../modules/user/models/user.model';
 
 export const getDBConfig = async (
   configService: ConfigService,
@@ -36,5 +37,5 @@ const getDBString = (configService: ConfigService) => {
 const getDBOptions = () => ({
   synchronize: true,
   autoLoadModels: true,
-  models: [],
+  models: [User],
 });
