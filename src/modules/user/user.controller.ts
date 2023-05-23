@@ -37,7 +37,7 @@ export class UserController {
   @ApiResponse({ status: 201, type: CreateUserDTO })
   @UseGuards(JwtAuthGuard)
   @Delete('/:userId')
-  async deleteUser(@Param('userId') userId: string) {
+  async deleteUser(@Param('userId') userId: string): Promise<boolean> {
     return this.userService.deleteUser(userId);
   }
 }

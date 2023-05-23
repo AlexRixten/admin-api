@@ -40,7 +40,7 @@ export class UserService {
     return dto;
   }
 
-  async deleteUser(id: string) {
+  async deleteUser(id: string): Promise<boolean> {
     await this.userRepository.destroy({ where: { id } });
     return true;
   }
