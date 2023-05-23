@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import config from '../../config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { getDBConfig } from '../../config/db.config';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { getDBConfig } from '../../config/db.config';
       useFactory: getDBConfig,
     }),
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],

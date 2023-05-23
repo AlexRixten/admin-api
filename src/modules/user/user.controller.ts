@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { UserService } from './user.service';
-import { EPrefixes } from '../../enums/prefixes.enum';
+import { EPrefixes } from '../../common/enums/prefixes.enum';
 import { CreateUserDTO } from './dto';
 
 @Controller(EPrefixes.Users)
