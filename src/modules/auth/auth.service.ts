@@ -29,13 +29,8 @@ export class AuthService {
     );
     if (!validatePassword) throw new BadRequestException(EUserErrors.WrongData);
 
-    const userData = {
-      name: existUser.first_name,
-      email: existUser.email,
-    };
-
-    const token = await this.tokenService.generateJwtToken(userData);
     const user = await this.userService.publicUser(dto.email);
+    const token = await this.tokenService.generateJwtToken(user);
     return { ...user, token };
   }
 }
